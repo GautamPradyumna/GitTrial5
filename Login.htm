@@ -1,0 +1,137 @@
+<html>
+    <head>
+        <title>Login Page</title>
+    </head>
+    <style>
+        .topnav{
+            overflow: hidden;
+            background-color: #333;
+        }
+        .topnav a{
+            float: left;
+            text-align: center;
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .topnav a:hover, .dropdown:hover .dropbtn{
+            background-color: #ddd;
+            color: black;
+        }
+        .topnav a.active{
+            background-color: gray;
+            color: white;
+        }
+        .dropdown{
+            float: left;
+            overflow: hidden;
+        }
+        .dropdown .dropbtn{
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            background-color: inherit;
+            margin: 0;
+            padding: 14px 16px;
+        }
+        .dropdown-content{
+            display: none;
+            position: absolute;
+            min-width: 160px;
+            background-color: #f2f2f2;
+            z-index: 1;
+
+        }
+        .dropdown-content a{
+            float:none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover{
+            background-color: #ddd;
+        }
+        .dropdown:hover .dropdown-content{
+            display: block;
+        }
+        #page{
+            margin-left: 450px;
+            margin-top:120px;
+            background-color: white;
+        }
+        #ch{
+            text-align: center;
+            color: brown;
+        }
+        input{
+            width: 300px;
+            height: 50px;
+            padding: 10px;
+            font-size: 20px;
+            background-color: rgb(240, 240, 240);
+            border-radius: 10px;
+        }
+        #btn{
+            width: 150px;
+            height: 50px;
+            padding: 10px;
+            font-size: 20px;
+            border-radius: 5px;
+        }
+    </style>
+    <body>
+        <div class="topnav">
+            <a href="SignUp.htm">SignUp</a>
+            <a href="Login.htm">Login</a>
+            <div class="dropdown">
+                <button class="dropbtn">Applications</button>
+                <div class="dropdown-content">
+                    <a href="Calculator.htm">CALCULATOR</a>
+                    <a href="Todolist.htm">TO DO LIST</a>
+                    <a href="Quiz.htm">QUIZ</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <form autocomplete="off">
+                <fieldset  id="page" style="text-align: center; width: 400px; height: 300px;">
+                    <h2 style="text-align:center;">Login Form</h2>
+                    <div>
+                        <p>
+                        <input type="text" name="mailid" id="id" placeholder="User Name">
+                        </p>
+                    </div>
+                    <div>
+                        <input type="password" name="password" id="pw" placeholder="Password">
+                    </div>
+                    <p>
+                    <a href=""><button type="submit" id="btn" onclick="check()" style="background-color: rgb(31, 212, 31); color: white;">Sign In</button></a>
+                    </p>
+                </fieldset>
+            </form>
+        </div>
+    <p id="ch">Forgot your password?<a href="" ><span style="color: rgb(255, 174, 0);">Click Here!</a></span></p>
+
+    <script>
+        function check()
+        {
+            var user=document.getElementById("id").value;
+            var password=document.getElementById("pw").value;
+            if(user=="gautam" && password=="gautam1599")
+            {
+                alert("Login successful");
+            }
+            else
+            {
+                alert("Please provide valid credentials");
+            }
+        }
+    </script>
+
+
+    </body>
+</html>

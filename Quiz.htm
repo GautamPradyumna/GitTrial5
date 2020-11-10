@@ -1,0 +1,198 @@
+<html>
+    <head>
+        <title>Mindtree</title>
+    </head>
+    <style>
+        .topnav{
+            overflow: hidden;
+            background-color: #333;
+        }
+        .topnav a{
+            float: left;
+            text-align: center;
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .topnav a:hover, .dropdown:hover .dropbtn{
+            background-color: #ddd;
+            color: black;
+        }
+        .topnav a.active{
+            background-color: gray;
+            color: white;
+        }
+        .dropdown{
+            float: left;
+            overflow: hidden;
+        }
+        .dropdown .dropbtn{
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            background-color: inherit;
+            margin: 0;
+            padding: 14px 16px;
+        }
+        .dropdown-content{
+            display: none;
+            position: absolute;
+            min-width: 160px;
+            background-color: #f2f2f2;
+            z-index: 1;
+
+        }
+        .dropdown-content a{
+            float:none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover{
+            background-color: #ddd;
+        }
+        .dropdown:hover .dropdown-content{
+            display: block;
+        }
+        #questions{
+            margin-top: 10%;
+            margin-left: 35%;
+            background-color: blanchedalmond;
+            width: 30%;
+            height: 40%;
+            padding: 20px;
+        }
+        
+    </style>
+    <body>
+        <div class="topnav">
+            <a href="SignUp.htm">SignUp</a>
+            <a href="Login.htm">Login</a>
+            <div class="dropdown">
+                <button class="dropbtn">Applications</button>
+                <div class="dropdown-content">
+                    <a href="Calculator.htm">CALCULATOR</a>
+                    <a href="Todolist.htm">TO DO LIST</a>
+                    <a href="Quiz.htm">QUIZ</a>
+                </div>
+            </div>
+        </div>
+
+        <h2>QUIZ</h2>
+        
+        <div id="ResultDisplay" style="display: none;">
+            <h1 id="byehead" >THANK YOU</h1>
+            <h2 id="bye"> Your score is:</h2>
+            <p id="finalResult"></p>
+        </div>
+
+        <div id="questions">
+            <p id="id"></p>
+            <p id="question"></p>
+            <p id="answers">
+                <input type="radio" name="ans" onclick="checkanswer(1)">
+                <label name="one" id="one" class="option"></label><br>
+                <input type="radio" name="ans" onclick="checkanswer(2)">
+                <label name="two" id="two" class="option"></label><br>
+                <input type="radio" name="ans" onclick="checkanswer(3)">
+                <label name="three" id="three" class="option"></label><br>
+                <input type="radio" name="ans" onclick="checkanswer(4)">
+                <label name="four" id="four" class="option"></label><br>
+            </p>
+            <input type="button" value="Next" id="nextbtn" onclick="increment()">
+        </div>
+
+        <script>
+            var collection=[
+                {id:1,
+                 questions:"Which country has the tallest statue?",
+                 answers:[
+                            {id:1,description:"America"},
+                            {id:2,description:"Australia"},
+                            {id:3,description:"India"},
+                            {id:4,description:"China"},
+                        ],
+                correct:4,},
+                {id:2,
+                 questions:"Where is Charminar located?",
+                 answers:[
+                            {id:1,description:"Chennai"},
+                            {id:2,description:"Bangalore"},
+                            {id:3,description:"Hyderabad"},
+                            {id:4,description:"Pune"},
+                        ],
+                correct:3,},
+                {id:3,
+                 questions:"Where is Taj Mahal located?",
+                 answers:[
+                            {id:1,description:"Chennai"},
+                            {id:2,description:"Bangalore"},
+                            {id:3,description:"Hyderabad"},
+                            {id:4,description:"Delhi"},
+                        ],
+                correct:4,},
+                {id:4,
+                 questions:"What is the capital of India?",
+                 answers:[
+                            {id:1,description:"Gujarat"},
+                            {id:2,description:"Bangalore"},
+                            {id:3,description:"Delhi"},
+                            {id:4,description:"Kolkatta"},
+                        ],
+                correct:3,},
+                {id:5,
+                 questions:"Which is the largest state of India?",
+                 answers:[
+                            {id:1,description:"Madhya Pradesh"},
+                            {id:2,description:"Bangalore"},
+                            {id:3,description:"Delhi"},
+                            {id:4,description:"Gujarat"},
+                        ],
+                correct:1,},
+            ];
+                    var counter=0;
+                    var finalScore=0;
+                    
+                    if(counter==0){
+                    document.getElementById("id").innerText=collection[counter].id;
+                    document.getElementById("question").innerText=collection[counter].questions;
+                    document.getElementById("one").innerText=collection[counter].answers[0].description;
+                    document.getElementById("two").innerText=collection[counter].answers[1].description;
+                    document.getElementById("three").innerText=collection[counter].answers[2].description;
+                    document.getElementById("four").innerText=collection[counter].answers[3].description;
+                    }
+                    
+                    function increment(){
+                      counter=counter+1;
+                      if(counter==collection.length){
+                          finalResult.style.display="block";
+                          ResultDisplay.style.display="block";
+                          finalResult.innerHTML=finalScore+" out of 100";
+                          questions.style.display="none";
+
+                        }
+                    document.getElementById("id").innerText=collection[counter].id;
+                    document.getElementById("question").innerText=collection[counter].questions;
+                    document.getElementById("one").innerText=collection[counter].answers[0].description;
+                    document.getElementById("two").innerText=collection[counter].answers[1].description;
+                    document.getElementById("three").innerText=collection[counter].answers[2].description;
+                    document.getElementById("four").innerText=collection[counter].answers[3].description;
+                     
+                  }
+
+                    function checkanswer(ele){
+                      if(collection[counter].correct==ele){
+                        finalScore+=20;
+                      }
+                  }
+
+                  
+
+                    
+        </script>
+    </body>
+</html>

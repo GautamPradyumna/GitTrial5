@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Mindtree</title>
+    </head>
+    <style>
+        .topnav{
+            overflow: hidden;
+            background-color: #333;
+        }
+        .topnav a{
+            float: left;
+            text-align: center;
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .topnav a:hover, .dropdown:hover .dropbtn{
+            background-color: #ddd;
+            color: black;
+        }
+        .topnav a.active{
+            background-color: gray;
+            color: white;
+        }
+        .dropdown{
+            float: left;
+            overflow: hidden;
+        }
+        .dropdown .dropbtn{
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            background-color: inherit;
+            margin: 0;
+            padding: 14px 16px;
+        }
+        .dropdown-content{
+            display: none;
+            position: absolute;
+            min-width: 160px;
+            background-color: #f2f2f2;
+            z-index: 1;
+
+        }
+        .dropdown-content a{
+            float:none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover{
+            background-color: #ddd;
+        }
+        .dropdown:hover .dropdown-content{
+            display: block;
+        }
+    </style>
+    <body>
+        <div class="topnav">
+            <a href="SignUp.htm">SignUp</a>
+            <a href="Login.htm">Login</a>
+            <div class="dropdown">
+                <button class="dropbtn">Applications</button>
+                <div class="dropdown-content">
+                    <a href="Calculator.htm">CALCULATOR</a>
+                    <a href="Todolist.htm">TO DO LIST</a>
+                    <a href="Quiz.htm">QUIZ</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

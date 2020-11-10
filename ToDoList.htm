@@ -1,0 +1,168 @@
+<html>
+    <head>
+        <title>Mindtree</title>
+    </head>
+    <style>
+        .topnav{
+            overflow: hidden;
+            background-color: #333;
+        }
+        .topnav a{
+            float: left;
+            text-align: center;
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .topnav a:hover, .dropdown:hover .dropbtn{
+            background-color: #ddd;
+            color: black;
+        }
+        .topnav a.active{
+            background-color: gray;
+            color: white;
+        }
+        .dropdown{
+            float: left;
+            overflow: hidden;
+        }
+        .dropdown .dropbtn{
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            background-color: inherit;
+            margin: 0;
+            padding: 14px 16px;
+        }
+        .dropdown-content{
+            display: none;
+            position: absolute;
+            min-width: 160px;
+            background-color: #f2f2f2;
+
+        }
+        .dropdown-content a{
+            float:none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover{
+            background-color: #ddd;
+        }
+        .dropdown:hover .dropdown-content{
+            display: block;
+        }
+        .head{
+            background-color: rgb(253, 150, 167);
+            text-align: center;
+            padding: 30px 40px;
+        }
+        .head:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        input[type=text]{
+            width: 100%;
+            color:rebeccapurple;
+            border-radius: 4px;
+            height: 30px;
+        }
+        input[type=submit]{
+            width: 50%;
+            border-radius: 5px;
+            height: 25px;
+            color:royalblue;
+            font-size: 20px;
+            background-color: thistle;
+        }
+        ul{
+            margin:0;
+            border:0;
+        }
+        ul li {
+        cursor: pointer;
+        position: relative;
+        padding: 12px 8px 12px 40px;
+        list-style-type:none;
+        background: #eee;
+        font-size: 18px;
+        width: 100%;
+        }
+        ul li:nth-child(odd){
+            background: #f9f9f9;
+        }
+        
+        .deletion {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 12px 16px 12px 16px;
+        }
+        * {
+        box-sizing: border-box;
+        }
+    </style>
+    <body>
+        <div class="topnav">
+            <a href="SignUp.htm">SignUp</a>
+            <a href="Login.htm">Login</a>
+            <div class="dropdown">
+                <button class="dropbtn">Applications</button>
+                <div class="dropdown-content">
+                    <a href="Calculator.htm">CALCULATOR</a>
+                    <a href="Todolist.htm">TO DO LIST</a>
+                    <a href="Quiz.htm">QUIZ</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="head" id="header">
+            <h2>TO DO LIST</h2>
+            <p><input type="text" id="data" placeholder="Type something..."></p>
+            <p><input type="submit" value="ADD" onclick="addItem()"></p>
+        </div>
+        <div>
+            <ul id="items">
+            </ul>
+        </div>
+        <script>
+            function addItem(){
+                var userInput=document.getElementById("data").value;
+                var li=document.createElement("li");
+                var text=document.createTextNode(userInput);
+                li.appendChild(text);
+                if(userInput==""){
+                    alert("Please write something");
+                }
+                else{
+                    document.getElementById("items").appendChild(li);
+                }
+
+                document.getElementById("data").value="";
+
+                var span=document.createElement("span");
+                var text=document.createTextNode("X");
+                span.className="deletion";
+                span.appendChild(text);
+                li.appendChild(span);
+
+                var remove=document.getElementsByClassName("deletion");
+                for(i=0;i<remove.length;i++){
+                    remove[i].onclick=function(){
+                        var it=this.parentElement;
+                        it.style.display="none";
+                    }
+                } 
+
+            }
+            
+
+        </script>
+    </body>
+</html>
